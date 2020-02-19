@@ -1,10 +1,10 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./screens/homeScreen";
 import Header from "./constants/header";
-import { colors } from "./constants/global";
+import ListScreen from "./screens/listScreen";
 
 const Stack = createStackNavigator();
 
@@ -12,6 +12,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
+        initialRouteName="Home"
         screenOptions={{
           headerTitleAlign: "center",
           headerStyle: { height: 90 }
@@ -22,6 +23,13 @@ export default function App() {
           component={HomeScreen}
           options={{
             headerTitle: props => <Header title="Minhas Listas" {...props} />
+          }}
+        />
+        <Stack.Screen
+          name="List"
+          component={ListScreen}
+          options={{
+            title: "Lista de Prioridades"
           }}
         />
       </Stack.Navigator>

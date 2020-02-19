@@ -3,9 +3,9 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import { colors } from "../../constants/global";
 
-const Card = ({ title }) => {
+const Card = ({ title, handlePress }) => {
   return (
-    <TouchableOpacity onPress={() => {}}>
+    <TouchableOpacity onPress={handlePress}>
       <View style={styles.container}>
         <Text style={styles.text}>{title}</Text>
       </View>

@@ -3,11 +3,12 @@ import RoundedButton from "../components/rounded-button";
 import Card from "../components/card-lists";
 import BackgroundContainer from "../constants/backgroundContainer";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
+  const handlePress = () => navigation.navigate("List");
   return (
     <BackgroundContainer>
-      <Card title="Minhas tarefas" />
-      <Card title="Minhas compras" />
+      <Card title="Minhas tarefas" handlePress={handlePress} />
+      <Card title="Minhas compras" handlePress={handlePress} />
       <RoundedButton />
     </BackgroundContainer>
   );
