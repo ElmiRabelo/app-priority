@@ -11,13 +11,17 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerTitleAlign: "center",
+          headerStyle: { height: 90 }
+        }}
+      >
         <Stack.Screen
           name="Home"
           component={HomeScreen}
           options={{
-            headerTitle: props => <Header title="Minhas Listas" {...props} />,
-            headerTitleAlign: "center"
+            headerTitle: props => <Header title="Minhas Listas" {...props} />
           }}
         />
       </Stack.Navigator>
