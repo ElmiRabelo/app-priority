@@ -1,13 +1,15 @@
 import React from "react";
-import { View, Text } from "react-native";
-import global from "../constants/global";
 import RoundedButton from "../components/rounded-button";
+import Card from "../components/card-lists";
+import BackgroundContainer from "../constants/backgroundContainer";
 
 const HomeScreen = () => {
   return (
-    <View style={global.container}>
+    <BackgroundContainer>
+      <Card title="Minhas tarefas" />
+      <Card title="Minhas compras" />
       <RoundedButton />
-    </View>
+    </BackgroundContainer>
   );
 };
 

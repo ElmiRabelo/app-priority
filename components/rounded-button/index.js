@@ -21,7 +21,8 @@ const RoundedButton = () => {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center"
+    alignItems: "flex-end",
+    justifyContent: "flex-end"
   },
   buttonContainer: {
     height: wp("20%"),

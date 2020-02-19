@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./screens/homeScreen";
+import Header from "./constants/header";
+import { colors } from "./constants/global";
 
 const Stack = createStackNavigator();
 
@@ -13,7 +15,10 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ title: "Minhas Listas" }}
+          options={{
+            headerTitle: props => <Header title="Minhas Listas" {...props} />,
+            headerTitleAlign: "center"
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
