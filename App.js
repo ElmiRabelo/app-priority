@@ -28,9 +28,7 @@ export default function App() {
         <Stack.Screen
           name="List"
           component={ListScreen}
-          options={{
-            title: "Lista de Prioridades"
-          }}
+          options={({ route }) => ({ title: route.params.title })}
         />
       </Stack.Navigator>
     </NavigationContainer>

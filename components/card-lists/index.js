@@ -1,21 +1,18 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { widthPercentageToDP as wp } from "react-native-responsive-screen";
+import { View, Text, StyleSheet } from "react-native";
 import { colors } from "../../constants/global";
 
-const Card = ({ title, handlePress }) => {
+const Card = ({ title }) => {
   return (
-    <TouchableOpacity onPress={handlePress}>
-      <View style={styles.container}>
-        <Text style={styles.text}>{title}</Text>
-      </View>
-    </TouchableOpacity>
+    <View style={styles.container}>
+      <Text style={styles.text}>{title}</Text>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    width: wp("90%"),
+    width: "99%",
     padding: 15,
     marginVertical: 12,
     elevation: 5,
