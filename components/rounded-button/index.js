@@ -7,10 +7,10 @@ import {
 } from "react-native-responsive-screen";
 import global, { colors } from "../../constants/global";
 
-const RoundedButton = () => {
+const RoundedButton = ({ pressHandler }) => {
   return (
     <View style={{ ...global.container, ...styles.container }}>
-      <TouchableOpacity onPress={() => {}}>
+      <TouchableOpacity onPress={() => pressHandler()}>
         <View style={styles.buttonContainer}>
           <Feather name="plus" size={40} color="#fff" />
         </View>
