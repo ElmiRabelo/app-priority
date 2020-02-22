@@ -3,15 +3,18 @@ import {
   TouchableOpacity,
   FlatList,
   Modal,
-  TouchableWithoutFeedback,
   View,
-  TextInput,
+  Text,
+  Image,
   StyleSheet
 } from "react-native";
-import { Feather } from "@expo/vector-icons";
 import RoundedButton from "../components/rounded-button";
 import Card from "../components/card-lists";
 import BackgroundContainer from "../constants/backgroundContainer";
+import FlatButton from "../components/flat-button";
+import CustomForm from "../components/custom-form";
+import { colors } from "../constants/global";
+import TaskImage from "../assets/make_list.png";
 
 const HomeScreen = ({ navigation }) => {
   const randomId = Math.floor(Math.random() * 300 + 1) + "id";
@@ -25,8 +28,8 @@ const HomeScreen = ({ navigation }) => {
 
   const [text, setText] = useState("");
 
-  const addList = () => {
-    setLists([...lists, { title: text, key: randomId }]);
+  const addList = title => {
+    setLists([...lists, { title, key: randomId }]);
     setText("");
     setIsOpen(false);
   };
@@ -35,16 +38,17 @@ const HomeScreen = ({ navigation }) => {
   return (
     <BackgroundContainer>
       <Modal visible={isOpen} animationType="slide">
-        <View style={styles.form}>
-          <TextInput
-            value={text}
-            onChangeText={text => setText(text)}
-            placeholder="Cria uma lista"
-            style={styles.input}
+        <View style={styles.formContainer}>
+          <CustomForm addList={addList} />
+          <Image source={TaskImage} style={styles.image} />
+          <Text style={styles.text}>Crie uma nova lista</Text>
+          <FlatButton
+            title="x"
+            size={30}
+            hasIcon
+            style={styles.button}
+            onPress={() => setIsOpen(false)}
           />
-          <TouchableOpacity onPress={addList}>
-            <Feather name="plus" size={30} style={styles.icon} />
-          </TouchableOpacity>
         </View>
       </Modal>
 
@@ -66,27 +70,26 @@ const HomeScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  form: {
-    flexDirection: "row",
-    marginTop: 25,
-    paddingHorizontal: 20,
-    width: "100%"
+  formContainer: {
+    flex: 1,
+    paddingVertical: 20
   },
-  icon: {
-    color: "#333",
-    marginHorizontal: 5,
-    padding: 15,
-    backgroundColor: "#333",
-    color: "#fff"
+  button: {
+    alignSelf: "center",
+    marginTop: "40%",
+    backgroundColor: colors.secondary,
+    color: colors.base,
+    borderRadius: 30
   },
-  input: {
-    borderWidth: 2,
-    borderColor: "#111",
-    elevation: 2,
-    padding: 15,
-    marginHorizontal: 5,
-    width: "70%",
-    backgroundColor: "#ccc"
+  image: {
+    marginTop: 50,
+    width: "100%",
+    height: "40%"
+  },
+  text: {
+    fontSize: 22,
+    letterSpacing: 1,
+    textAlign: "center"
   }
 });
 
