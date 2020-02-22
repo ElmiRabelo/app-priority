@@ -26,10 +26,10 @@ const FlatButton = ({ title, hasIcon, onPress, size, style }) => {
 
 const styles = StyleSheet.create({
   button: {
-    padding: 15,
+    padding: 14,
     color: colors.light,
     backgroundColor: colors.base,
-    elevation: 1
+    elevation: 3
   },
   buttonTile: {
     color: colors.light,

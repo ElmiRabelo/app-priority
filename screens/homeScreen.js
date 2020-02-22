@@ -4,8 +4,6 @@ import {
   FlatList,
   Modal,
   View,
-  Text,
-  Image,
   StyleSheet
 } from "react-native";
 import RoundedButton from "../components/rounded-button";
@@ -13,8 +11,8 @@ import Card from "../components/card-lists";
 import BackgroundContainer from "../constants/backgroundContainer";
 import FlatButton from "../components/flat-button";
 import CustomForm from "../components/custom-form";
+import ImageCard from "../components/image-card";
 import { colors } from "../constants/global";
-import TaskImage from "../assets/make_list.png";
 
 const HomeScreen = ({ navigation }) => {
   const randomId = Math.floor(Math.random() * 300 + 1) + "id";
@@ -26,11 +24,8 @@ const HomeScreen = ({ navigation }) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const [text, setText] = useState("");
-
   const addList = title => {
     setLists([...lists, { title, key: randomId }]);
-    setText("");
     setIsOpen(false);
   };
 
@@ -40,8 +35,7 @@ const HomeScreen = ({ navigation }) => {
       <Modal visible={isOpen} animationType="slide">
         <View style={styles.formContainer}>
           <CustomForm addList={addList} />
-          <Image source={TaskImage} style={styles.image} />
-          <Text style={styles.text}>Crie uma nova lista</Text>
+          <ImageCard />
           <FlatButton
             title="x"
             size={30}
@@ -76,20 +70,10 @@ const styles = StyleSheet.create({
   },
   button: {
     alignSelf: "center",
-    marginTop: "40%",
-    backgroundColor: colors.secondary,
-    color: colors.base,
+    marginTop: "20%",
+    backgroundColor: colors.auxiliar,
+    color: colors.grey,
     borderRadius: 30
-  },
-  image: {
-    marginTop: 50,
-    width: "100%",
-    height: "40%"
-  },
-  text: {
-    fontSize: 22,
-    letterSpacing: 1,
-    textAlign: "center"
   }
 });
 

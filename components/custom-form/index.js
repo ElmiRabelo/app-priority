@@ -38,6 +38,7 @@ const listForm = ({ addList }) => {
             size={30}
             hasIcon
             onPress={props.handleSubmit}
+            style={{ backgroundColor: colors.primary, color: colors.grey }}
           />
         </View>
       )}
