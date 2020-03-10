@@ -9,7 +9,7 @@ import global, { colors } from "../../constants/global";
 
 const RoundedButton = ({ pressHandler }) => {
   return (
-    <View style={{ ...global.container, ...styles.container }}>
+    <View style={styles.container}>
       <TouchableOpacity onPress={() => pressHandler()}>
         <View style={styles.buttonContainer}>
           <Feather name="plus" size={40} color="#fff" />

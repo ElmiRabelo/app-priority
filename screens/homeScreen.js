@@ -6,14 +6,17 @@ import {
   View,
   StyleSheet
 } from "react-native";
+// Components
 import RoundedButton from "../components/rounded-button";
 import Card from "../components/card-lists";
 import BackgroundContainer from "../constants/backgroundContainer";
 import FlatButton from "../components/flat-button";
 import CustomForm from "../components/custom-form";
 import ImageCard from "../components/image-card";
-import { colors } from "../constants/global";
+//Utils
+import globalStyles, { colors } from "../constants/global";
 
+// #-> HomeScreen
 const HomeScreen = ({ navigation }) => {
   const randomId = Math.floor(Math.random() * 300 + 1) + "id";
 
@@ -31,7 +34,7 @@ const HomeScreen = ({ navigation }) => {
 
   const openForm = () => setIsOpen(true);
   return (
-    <BackgroundContainer>
+    <BackgroundContainer style={globalStyles.container}>
       <Modal visible={isOpen} animationType="slide">
         <View style={styles.formContainer}>
           <CustomForm addList={addList} />
@@ -63,6 +66,7 @@ const HomeScreen = ({ navigation }) => {
   );
 };
 
+//Local Styles
 const styles = StyleSheet.create({
   formContainer: {
     flex: 1,

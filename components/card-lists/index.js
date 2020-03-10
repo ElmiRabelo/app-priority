@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
     elevation: 5,
     borderRadius: 10,
     backgroundColor: colors.light,
-    borderLeftWidth: 5,
-    borderColor: colors.grey
+    borderLeftWidth: 6,
+    borderColor: colors.primaryDark
   },
   text: {
     alignSelf: "flex-start",
